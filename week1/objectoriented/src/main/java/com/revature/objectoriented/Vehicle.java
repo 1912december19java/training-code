@@ -33,16 +33,16 @@ public class Vehicle {
 		this.topSpeed = wackyNameForColor.length();
 	}
 	
-	void drive() {
+	void drive() throws OutOfFuelException {
 		if (this.fuel > 0 && this.running) {
 			System.out.println("Vroom.");
 			this.fuel -= 1.0; //this.fuel = this.fuel - 1.0;
 		} else {
-			System.out.println("Failed to drive");
+			throw new OutOfFuelException();
 		}
 	}
 	
-	void turnOn() {
+	public void turnOn() {
 		this.running = true;
 	}
 	
@@ -50,7 +50,7 @@ public class Vehicle {
 		this.running = false;
 	}
 	
-	void refuel(Double amount) {
+	public void refuel(Double amount) {
 		if (amount > 0.0) {
 			this.fuel += amount;
 		} else {

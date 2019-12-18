@@ -16,6 +16,7 @@ public class Driver {
 		Vehicle jessesVehicle = new Vehicle(15.0, 100, "white", "honda");
 		
 		adamsVehicle = jessesVehicle;
+		
 
 		int topSpeed = jessesVehicle.topSpeed;
 		int i = 3;
@@ -24,7 +25,12 @@ public class Driver {
 		System.out.println(adamsVehicle);
 		
 		adamsVehicle.turnOn();
-		adamsVehicle.drive();
+		try {
+			adamsVehicle.drive();
+		} catch (OutOfFuelException e) {
+			System.out.println("Not enough fuel in the tank to drive");
+			e.printStackTrace();
+		}
 		adamsVehicle.refuel(5.0);
 		
 		System.out.println(adamsVehicle);
@@ -34,13 +40,20 @@ public class Driver {
 		Truck adamsTruck = new Truck(4.0, 370, "brown", "toyota", 300, 400);
 		
 		adamsTruck.turnOn();
-		
-		adamsTruck.tow(200);
-		adamsTruck.tow(400);
-		adamsTruck.tow(300);
-		adamsTruck.tow(200);
-		adamsTruck.tow(200);
-		adamsTruck.tow(200);
+		try {
+			adamsTruck.tow(200);
+			adamsTruck.tow(400);
+			adamsTruck.tow(300);
+			adamsTruck.tow(200);
+			adamsTruck.tow(200);
+			adamsTruck.tow(200);
+		} catch(OutOfFuelException e) {
+			System.out.println("At some point the towing truck ran out of fuel.");
+			e.printStackTrace();
+		} catch(InsufficientTowingPowerException e) {
+			System.out.println("At some point the towing truck was unable to pull the weight.");
+			e.printStackTrace();
+		}
 		
 	}
 	
