@@ -1,3 +1,4 @@
+.Servers/*
 hibernate.cfg.xml
 ###Angular
 .DS_STORE
