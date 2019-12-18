@@ -2,6 +2,8 @@ package com.revature.objectoriented;
 
 public class Vehicle {
 	
+	//final means a field can't be changed
+	static final Integer NUMBER_OF_WHEELS = 4;
 	Double fuel;
 	Boolean running;
 	Integer topSpeed;
@@ -59,7 +61,7 @@ public class Vehicle {
 	@Override
 	public String toString() {
 		return "Vehicle [fuel=" + fuel + ", running=" + running + ", topSpeed=" + topSpeed + ", color=" + color
-				+ ", model=" + model + "]";
+				+ ", model=" + model + ", NUMBER_OF_WHEELS=" + NUMBER_OF_WHEELS + "]";
 	}
 	
 	
