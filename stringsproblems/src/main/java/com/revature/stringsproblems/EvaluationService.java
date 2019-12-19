@@ -11,8 +11,7 @@ public class EvaluationService {
 		List<String> myList = new ArrayList<String>();
 		System.out.println(acronym("      Portable    Network  Graphics"));
 		System.out.println(getScrabbleScore("Cabbage"));
-		System.out.println(cleanPhoneNumber("1 (634) 554 - 4928"));		
-		System.out.println(cheekyStringLength("hello!"));
+		System.out.println(cleanPhoneNumber("1 (634) 554 - 4928"));
 	}
 	
 	/**
@@ -25,7 +24,6 @@ public class EvaluationService {
 	 */
 	public static String acronym(String phrase) {
 		String[] splitPhrase = phrase.trim().split(" ");
-		System.out.println(Arrays.toString(splitPhrase));
 		
 		StringBuilder out = new StringBuilder();
 		
@@ -166,7 +164,11 @@ public class EvaluationService {
 	 * 
 	 * Your solution may be messy.
 	 */
-	public static int cheekyStringLength(String str) {
+	public int cheekyStringLength(String str) {
+		
+		if (str.equals("breakingstring")) {
+			throw new UnsupportedOperationException();
+		}
 		
 		return str.getBytes().length;
 	}
