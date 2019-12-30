@@ -9,14 +9,11 @@ public class Driver {
   public static void main(String[] args) {
     ComicDao comicDao = new ComicDaoPostgres();
     
-    Comic comicToEdit =  comicDao.get(2);
-    comicToEdit.setTitle("Batman: Detective Man 2");
-    comicToEdit.setPageCount(333);
-    comicToEdit.setRating(2);
-    comicDao.update(comicToEdit);
+    Comic comic2 =  comicDao.get(2);
+    Comic comic3 = comicDao.get(3);
+    Comic comic70 = comicDao.get(70);
+    Comic comic60 = comicDao.get(-33);
     
-    System.out.println(comicDao.getAll());
-
   }
 
 }
