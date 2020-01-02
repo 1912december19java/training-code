@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>My Webpage</title>
+</head>
+
+<body>
+
+  <h1>Tour of HTML</h1>
+
+  <p>
+    P is for paragraph. Long pieces of text go in here.
+    We can nest elements. Here is an "anchor" element (a tag):
+    <a href="http://www.google.com">My Link</a>
+    href on an "a" tag is our first attribute.
+    It specifies the destination of a link.
+  </p>
+
+  <h3>Lists</h3>
+  <p>
+    We have 3 types of lists: ordered, unordered, and select lists. Select
+    is a little different.
+  </p>
+
+  <ol>
+    <li>Here is the first item</li>
+    <li>Here is the second</li>
+  </ol>
+
+  <ul>
+    <li>This is a list item</li>
+    <li>Here is another</li>
+  </ul>
+
+  <select>
+    <option>Option 1</option>
+    <option>Option 2</option>
+    <option>Option C</option>
+  </select>
+
+  <h3>Tables</h3>
+  <p>
+    Tables in html consist of a number of nested tags.
+    We'll need : table, thead, tbody, tr (row), th (for row heading), and td (data cell)
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th>Col 1</th>
+        <th>Col 2</th>
+        <th>Col 3</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data 1</td>
+        <td>Data 2</td>
+        <td>Data 3</td>
+      </tr>
+      <tr>
+        <td>Data 4</td>
+        <td>Data 5</td>
+        <td>Data 6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>div and span elements</h3>
+
+  <p>div is a division, a section of your page. It has no meaning and no default style.</p>
+  <br>
+  <p>span is similarly meaningless, but it is has "inline" style instead of "block" style.</p>
+
+  <div>
+    <p>
+      This p tag is inside a div, not that we could tell. The div just organizes our page,
+      seperating it out into sections.
+      <span>This text is inside a span element, inside the p element</span>
+    </p>
+  </div>
+
+  <h5>Inline vs. block</h5>
+
+  <p>
+    Block elements "own their own vertical space".
+    They take up a horizontal band across the screen.
+    Tables, h1-6s, p tags, div tags, are all block elements.
+    <br>
+    Inline elements don't own their own vertical space -- they
+    make use of the space controlled by their parent element.
+    A tags and span tags are inline elements.
+    <br>
+    The above is default behaviour -- we can change it with styling.
+  </p>
+
+  <p>
+    We can also say that div is the generic block element and
+    span is the generic inline element
+  </p>
+
+  <h5>Additional Inline Elements</h5>
+
+  <p>Since inline elements just inherit space and fit in the same line, they
+    can be used to mark text for decoration. <em>Emphasize with em</em>,
+    <u>u for underlined, but don't use this (see MDN). Deprecated.</u>,
+    <strong>Strong for something bold-like, doesn't have to be bold</strong>.
+  </p>
+
+  <h5>Typical Use of div and span</h5>
+
+  <p>
+    Since div and span are generic, we typically assign them class(es)
+    attributes to specify their meaning and style. To some extent, div
+    has been replaced with semantic tags in HTML5.
+  </p>
+
+  <h3>Semantic Tags (new in HTML5!)</h3>
+
+  <p>
+    Semantic tags were built with the intent of replacing many divs.
+    Your semantic tags have no default style and represent structure, but
+    each has a name with a meaning.
+  </p>
+
+  <header>This is in a header</header>
+  <nav>This is in a nav</nav>
+  <section>This is in a section</section>
+  <footer>This is in a footer</footer>
+
+  <p>
+    These make your HTML more sensible. Better for developers and
+    they partially replace ARIA(Accessible Rich Internet Applications)
+    labels for accessibility.
+  </p>
+
+  <h3>Images</h3>
+
+  <p>
+    Images are used with the img tag.
+    We specify a src, a title, and and alt for alternative text
+  </p>
+
+  <h5>Image linked from wikipedia:</h5>
+  <img src="https://upload.wikimedia.org/wikipedia/en/9/95/Yuri_Knorozov.jpg"
+    alt="Picture of Yuri w/ cat on wikipedia">
+  By <span title="must have been published or publicly displayed outside Wikipedia">Source</span> (<a
+    href="//en.wikipedia.org/wiki/Wikipedia:Non-free_content_criteria#4"
+    title="Wikipedia:Non-free content criteria">WP:NFCC#4</a>), <a href="//en.wikipedia.org/wiki/File:Yuri_Knorozov.jpg"
+    title="Fair use of copyrighted material in the context of Yuri Knorozov">Fair use</a>, <a
+    href="https://en.wikipedia.org/w/index.php?curid=60497701">Link</a>
+
+  <h5>Image from local disk:</h5>
+  <img src="Yuri_Knorozov.jpg" alt="Picture of Yuri w/ cat on local disk">
+
+  <h3>New HTML5 media tags</h3>
+
+  <p>
+    HTML5 added native support for audio, video, and "canvas".  
+    Canvas supports SVGs; it's the native replacement for flash.
+  </p>
+
+  <canvas></canvas>
+  <video src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm" controls="controls"></video>
+  <audio src="https://interactive-examples.mdn.mozilla.net/media/examples/flower.webm" controls></audio>
+
+  <h3>Forms</h3>
+
+  <p>
+    Forms are the HTML way of having users interact with your server.  They enable
+    HTTP GET and HTTP POST requests without an JavaScript.
+  </p>
+
+  <form method="POST" action="mybrokensite.com">
+    <label>
+      Text Input
+      <input type="text" name="texti">
+    </label>
+    
+    <label>
+      Number Input
+      <input type="number" name="numberi">
+    </label>
+
+    <label for="filei">File Input</label>
+    <input type="file" id="filei" name="filei">
+
+    <label for="emaili">Email Input</label>
+    <input type="email" id="emaili" name="emaili">
+    <input type="submit">
+  </form>
+
+  <h3>Yahoo searcher</h3>
+  <form method="GET" action="http://www.search.yahoo.com/search">
+    <label for="q">Yahoo Search Query</label>
+    <input type="text" name="q">
+    <input type="submit">
+  </form>
+
+  <h3>Linked page</h3>
+
+  <p>When linking to another page in the same folder, just use its name
+    <a href="linkedpage.html">My Linked Page</a>
+  </p>
+</body>
+
+</html>
