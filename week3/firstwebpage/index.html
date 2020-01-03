@@ -2,19 +2,21 @@
 <html>
 
 <head>
+  <link rel="stylesheet" href="main.css">
   <title>My Webpage</title>
 </head>
 
 <body>
 
-  <h1>Tour of HTML</h1>
+  <h1 class="boxed">Tour of HTML</h1>
 
-  <p>
-    P is for paragraph. Long pieces of text go in here.
+  <p class="boxed">
+    P is for <span class="underlined">Paragraph</span>. Long pieces of text go in here.
     We can nest elements. Here is an "anchor" element (a tag):
-    <a href="http://www.google.com">My Link</a>
+    <a class="big standout" href="http://www.google.com">My Link</a>
     href on an "a" tag is our first attribute.
-    It specifies the destination of a link.
+    It specifies the <span class="underlined" id="myUniqueSpan">destination</span>
+     of a link.
   </p>
 
   <h3>Lists</h3>
@@ -29,8 +31,8 @@
   </ol>
 
   <ul>
-    <li>This is a list item</li>
-    <li>Here is another</li>
+    <li class="underlined">This is a list item</li>
+    <li class="standout">Here is another</li>
   </ul>
 
   <select>

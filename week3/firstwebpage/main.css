@@ -1,0 +1,37 @@
+/* This selector matches everything: */
+* {
+}
+
+body {
+  background-color: bisque;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.big {
+  font-size: x-large;
+}
+
+.standout {
+  color: red;
+}
+
+.boxed {
+  /* Like a block element that doesn't take up full horizontal band */
+  display: inline-block;
+  height: 100px;
+  width: 200px;
+  padding: 20px;
+  border-top: 1px dotted blue;
+  border-bottom: 3px dashed green;
+  margin: 10px, 20px;
+  background-color: lavender;
+  overflow: scroll;
+}
+
+#myUniqueSpan {
+  text-decoration: overline;
+}
