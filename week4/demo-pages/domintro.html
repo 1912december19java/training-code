@@ -10,23 +10,21 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <!-- navigation  -->
+  <!-- Template nav and header -->
   <nav class="navbar navbar-expand-sm nav-pills">
     <a class="navbar-brand" href="index.html">DemoPages</a>
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="index.html">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="elsewhere.html">Elsewhere</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="domintro.html">DOM Intro</a>
+        <a class="nav-link active" href="domintro.html">DOM Intro</a>
       </li>
     </ul>
   </nav>
-
-  <!-- Nice page heading -->
   <header class="jumbotron">
     <div class="container">
       <div class="row">
@@ -40,32 +38,26 @@
     </div>
   </header>
 
-  <!-- bootstrap content demo -->
+  <!-- content -->
   <main class="container">
     <div class="row">
-      <div class="col-md-6">
-        <h2>About</h2>
-        <p>
-          This page is the landing page for a series of demos
-          We're using the bootstrap grid system here to get
-          this nice 2-column layout.  We're also using a jumbotron
-          and a navbar (coming soon!)
-        </p>
+      <div class="col-sm-3">
+        <h2>On this page, open the console</h2>
       </div>
-      <div class="col-md-5">
-        <h2>Other Demos</h2>
-        <p>
-          Most of the linked demos use JavaScript, so we'll
-          often want to open the console on our browser
-          when viewing those pages.  See links along the top.
-        </p>
-      </div>
-      <div class="col-xl-1">
-        <h2>Narrow</h2>
-        <p>This text is quite narrow</p>
+      <div class=col-sm-9">
+        <h2>Elements to manipulate:</h2>
+        <p id="apple">Element apple</p>
+        <p id="orange">Element orange</p>
+        <div id="grapefruit">
+          <p>Nested element under grapefruit</p>
+        </div>
+        <button class="btn btn-danger" id="fruit-button">
+          Element fruit-button
+        </button>
       </div>
     </div>
   </main>
   
+  <script src="dom.js"></script>
 </body>
 </html>
