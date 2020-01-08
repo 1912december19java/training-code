@@ -24,11 +24,6 @@ async function getSprites() {
     let response = await fetch(`${baseUri}/${pokemonNumber}`)
     let pokemon = await response.json();
     element.src = pokemon.sprites.front_default;
-    //TODO: fix this so we don't stack up a bunch of click listeners
-    //element.removeEventListener('click');
-    element.addEventListener('click', () => {
-      createPokemonInfoPopulator(pokemon)();
-    });
     windowIndex++;
   }
 }
@@ -46,30 +41,5 @@ scrollRight.addEventListener('click', ()=>{
   startingDisplayIndex += 6;
   getSprites();
 });
-
-function createPokemonInfoPopulator(pokemon) {
-  return async ()=>{
-    //this will quickly clear out existing pokemon info:
-    pokemonInfo.innerHTML = '';
-    let infoList = document.createElement('ul');
-    for(let key in pokemon) {
-      if(['id','name','height','weight'].includes(key)) {
-        let listItem = document.createElement('li');
-        listItem.innerText = `${key}: ${pokemon[key]}`;
-        infoList.appendChild(listItem);
-      }
-    }
-    pokemonInfo.appendChild(infoList);
-    let locationResponse = await fetch(pokemon.location_area_encounters);
-    let locationsArray = await locationResponse.json();
-    let listItem = document.createElement('li');
-    if(locationsArray.length === 0) {
-      listItem.innerText = 'location: Not Found In Wild';
-    } else {
-      listItem.innerText = `location: ${locationsArray[0].location_area.name}`;
-    }
-    infoList.appendChild(listItem);
-  }
-}
 
 getSprites();

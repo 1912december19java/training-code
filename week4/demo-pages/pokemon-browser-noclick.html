@@ -18,7 +18,7 @@
         <a class="nav-link" href="index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="elsewhere.html">Elsewhere</a>
+        <a class="nav-link" href="elsewhere.html">Elsewhere</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="domintro.html">DOM Intro</a>
@@ -33,7 +33,7 @@
         <a class="nav-link" href="pokemon-browser.html">PB</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pokemon-browser-noclick.html">PB Basic</a>
+        <a class="nav-link active" href="pokemon-browser-noclick.html">PB Basic</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="recipe-form.html">Recipe Form</a>
@@ -56,8 +56,43 @@
   <!-- content -->
   <main class="container">
     <div class="row">
+      <div class="col-md-2">
+        <img id="sprite1" class="img-fluid" alt="sprite">
+      </div>
+      <div class="col-md-2">
+        <img id="sprite2" class="img-fluid" alt="sprite">
+      </div>
+      <div class="col-md-2">
+        <img id="sprite3" class="img-fluid" alt="sprite">
+      </div>
+      <div class="col-md-2">
+        <img id="sprite4" class="img-fluid" alt="sprite">
+      </div>
+      <div class="col-md-2">
+        <img id="sprite5" class="img-fluid" alt="sprite">
+      </div>
+      <div class="col-md-2">
+        <img id="sprite6" class="img-fluid" alt="sprite">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <button id="scroll-left" class="btn btn-primary"><</button>
+      </div>
+      <div class="col-6">
+        <button id="scroll-right" class="btn btn-primary">></button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <h3>Info</h3>
+        <div id="pokemon-info">
+          <h4>Info is disabled on this page</h4>
+        </div>
+      </div>
     </div>
   </main>
   
+  <script src="pokemon-browser-noclick.js"></script>
 </body>
 </html>

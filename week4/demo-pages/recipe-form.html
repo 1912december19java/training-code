@@ -18,7 +18,7 @@
         <a class="nav-link" href="index.html">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" href="elsewhere.html">Elsewhere</a>
+        <a class="nav-link" href="elsewhere.html">Elsewhere</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="domintro.html">DOM Intro</a>
@@ -36,7 +36,7 @@
         <a class="nav-link" href="pokemon-browser-noclick.html">PB Basic</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="recipe-form.html">Recipe Form</a>
+        <a class="nav-link active" href="recipe-form.html">Recipe Form</a>
       </li>
     </ul>
   </nav>
@@ -56,8 +56,22 @@
   <!-- content -->
   <main class="container">
     <div class="row">
+      <div class="col-md-8">
+        <form id="recipe-form">
+          <label for="name">Recipe Name</label>
+          <input type="text" name="name" id="recipe-name">
+          <label for="directions">Directions</label>
+          <input type="text" name="directions" id="recipe-directions">
+          <label for="serves">Number Servings</label>
+          <input type="number" name="serves" id="recipe-serves">
+          <input class="btn btn-danger" type="submit">
+        </form>
+      </div>
+      <div class="col-md-4" id="response">
+        <h3>Response:</h3>
+      </div>
     </div>
   </main>
-  
+  <script src="recipe-form.js"></script>
 </body>
 </html>
