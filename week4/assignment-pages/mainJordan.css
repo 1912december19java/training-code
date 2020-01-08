@@ -1,0 +1,20 @@
+*{
+    background-color: wheat;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#needBackground{
+    background-color: wheat;
+}
+#needSpace{
+    margin-top: 150px;
+    margin-left: 300px;
+
+}
+h1{
+    margin-top: 50px;
+    margin-left: 250px;
+}
+p{
+    font-size: large;
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="practice.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm nav-pills bg-light"> <!--nav-tabs or nav-pills-->
+        <a class="navbar-brand" href="practice.html">Practice</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="practice.html">Home</a>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-12"> <!--No stacking because no xs sm md or lg-->
+                    <h1 id="revature">Revature</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col-md-10 paragraph">
+                <p id="p1">
+                    This is full of content. WOW SO MUCH CONTENT! Take a look at what
+                    my button can do! KEEP CLICKING IT.
+                </p>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-danger" id="a-button">Click Me</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        const abut = document.getElementById("a-button");
+        let y =0;
+        abut.addEventListener('click', (e)=>{ 
+            const x = ["red", "green", "blue", "orange"];
+            if (y > 3)
+            {
+                y = 0;
+            }
+            document.getElementById("p1").style.color = x[y];
+            y++;
+            console.log("click");
+        });
+
+        const rev = document.getElementById("revature");
+        let z = 0;
+        document.body.addEventListener("mousemove", (e)=>{ 
+            const t = ["red", "green", "blue", "orange"];
+            if (z > 3)
+            {
+                z = 0;
+            }
+            rev.style.color = t[z];
+            z++;
+        });
+
+        let a = 0;
+        document.body.addEventListener("mousemove", (e)=>{ 
+            const b = ["red", "green", "blue", "orange"];
+            if (a > 3)
+            {
+                a = 0;
+            }
+            document.body.style.backgroundColor = b[a];
+            a++;
+        });
+    </script>
+</body>
+</html>

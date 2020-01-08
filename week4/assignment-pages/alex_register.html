@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--A style sheet w/ at least 2 rulesets-->
+    <!--A button that modifies the DOM in some way-->
+    <!--Another event on an element that does something-->
+    <!--bootstrap grid system formatting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="alex_bootstrap.min.css">
+    <link rel="stylesheet" href="alex_main.css">
+    <title>The Dark Lord</title>
+</head>
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-expand-sm nav-pills">
+        <a class="navbar-brand" href="alex_index.html">Church of Elmo</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="alex_index.html">Home</a>
+            </li>
+            <li class="navitem">
+                <a class="nav-link active" href="alex_register.html">Sign Up!</a>
+            </li>
+        </ul>
+    </nav>
+    <!--Heading-->
+    <header class="jumbotron">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-9">
+                    <h1 id="title">
+                        ALL HAIL THE DARK LORD
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--Content-->
+    <main class="container" id="mainContent">
+        <div class="row">
+            <div class="col-md-6">
+                <form>
+                    <label>Full Name of Firstborn Child</label>
+                    <input type="text">
+                </form>
+                <button class="btn btn-outline-danger" id="mainButton">Sign Up</button>
+            </div>
+            <div class="col-md-6">
+                <img id="elmoPic" class="img-fluid" src="alex_elmo.jpg">
+            </div>
+        </div>
+    </main>
+
+    <script src="alex_dom.js">
+    </script>
+</body>
+</html>
