@@ -62,6 +62,24 @@ public class WidgetServiceTest {
 		assertTrue(sumWidget.equals(new Widget("1234")));
 	}
 	
+	@Test
+	public void multiplyWidgetByFour() {
+		Widget productWidget = widgetService.widgetMultiplication(new Widget("hello"), 4);
+		assertTrue(productWidget.equals(new Widget("hellohellohellohello")));
+	}
+	
+	@Test
+	public void multiplyWidgetBySix() {
+		Widget productWidget = widgetService.widgetMultiplication(new Widget("fep"), 6);
+		assertTrue(productWidget.equals(new Widget("fepfepfepfepfepfep")));
+	}
+	
+	@Test
+	public void multiplyWidgetByZero() {
+		Widget productWidget = widgetService.widgetMultiplication(new Widget("abracadabra"), 0);
+		assertTrue(productWidget.equals(new Widget("")));
+	}
+	
 	@After
 	public void tearDown() {
 		widgetService = null;

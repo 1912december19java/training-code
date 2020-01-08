@@ -54,5 +54,19 @@ public class WidgetService {
 		}
 		return new Widget(sumProperties.toString());
 	}
+	
+	/**
+	 * Creates a new widget with the property of the passed
+	 * in widget repeated multiplyBy times.  Note that multiplication by
+	 * 0 should return the empty string. 
+	 * @param w
+	 * @param multiplyBy
+	 * @return
+	 */
+	public Widget widgetMultiplication(Widget w, int multiplyBy) {
+		String productProperties = "";
+		//Fill in the implementation to pass the tests here
+		return new Widget(productProperties);
+	}
 
 }
