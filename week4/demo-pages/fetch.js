@@ -8,6 +8,7 @@ let pokemonNumber = 4;
 keysButton.addEventListener('click', (event)=>{
   fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonNumber}`)
       .then((response)=>{
+        //This takes the text of the body, parses it as JSON, and gives us an object
         return response.json();
       })
       .then((pokemon)=>{
@@ -40,4 +41,14 @@ function addSpriteToDom(pokemon) {
   image.alt = 'Pokemon Sprite';
   image.src = pokemon.sprites.front_default;
   receivedContent.appendChild(image);
+}
+
+spriteButton.addEventListener('mouseleave', ()=>{
+  getOtherSprite();
+});
+
+async function getOtherSprite() {
+  let resp = await fetch(`https://pokeapi.co/api/v2/pokemon/77`);
+  let json = await resp.json();
+  addSpriteToDom(json);
 }
