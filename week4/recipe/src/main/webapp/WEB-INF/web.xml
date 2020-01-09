@@ -10,9 +10,19 @@
   	<servlet-class>com.revature.recipe.controllers.FormServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>Json</servlet-name>
+  	<servlet-class>com.revature.recipe.controllers.JsonServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>Form</servlet-name>
   	<url-pattern>/form/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Json</servlet-name>
+  	<url-pattern>/json/*</url-pattern>
   </servlet-mapping>
   
 </web-app>

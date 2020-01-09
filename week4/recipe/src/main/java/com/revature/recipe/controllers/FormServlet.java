@@ -12,13 +12,15 @@ public class FormServlet extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("Reached GET FormServlet");
+    doPost(req, resp);
   }
   
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
-    System.out.println("Reached POST FormServlet");
+    
+    System.out.println("Received " + req.getMethod() + " at " + req.getRequestURI());
+    
     String name = req.getParameter("name");
     String directions =  req.getParameter("directions");
     Integer serves = null;
@@ -35,6 +37,8 @@ public class FormServlet extends HttpServlet {
     
     //something like : 
     //recipeService.save(recipe);
+    //or
+    //recipeDao.save(recipe);
     
     resp.getWriter().write("Received Recipe: " + recipe);
   }
