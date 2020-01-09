@@ -48,10 +48,17 @@ scrollRight.addEventListener('click', ()=>{
 });
 
 function createPokemonInfoPopulator(pokemon) {
+  console.log(`About to return async anonymous function`);
   return async ()=>{
     //this will quickly clear out existing pokemon info:
+    console.log(`Clearing pokemonInfo`)
     pokemonInfo.innerHTML = '';
     let infoList = document.createElement('ul');
+
+    console.log(`appendings infoList to pokemonInfo`);
+    pokemonInfo.appendChild(infoList);
+    let locationResponse = await fetch(pokemon.location_area_encounters);
+    let locationsArray = await locationResponse.json();
     for(let key in pokemon) {
       if(['id','name','height','weight'].includes(key)) {
         let listItem = document.createElement('li');
@@ -59,9 +66,6 @@ function createPokemonInfoPopulator(pokemon) {
         infoList.appendChild(listItem);
       }
     }
-    pokemonInfo.appendChild(infoList);
-    let locationResponse = await fetch(pokemon.location_area_encounters);
-    let locationsArray = await locationResponse.json();
     let listItem = document.createElement('li');
     if(locationsArray.length === 0) {
       listItem.innerText = 'location: Not Found In Wild';

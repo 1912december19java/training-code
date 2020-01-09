@@ -10,9 +10,29 @@
   	<servlet-class>com.revature.firstservlets.HelloServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  	<servlet-name>Session</servlet-name>
+  	<servlet-class>com.revature.firstservlets.SessionServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Calculator</servlet-name>
+  	<servlet-class>com.revature.firstservlets.CalculatorServlet</servlet-class>
+  </servlet>
+  
   <servlet-mapping>
   	<servlet-name>Hello</servlet-name>
   	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Session</servlet-name>
+  	<url-pattern>/session</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Calculator</servlet-name>
+  	<url-pattern>/calculator</url-pattern>
   </servlet-mapping>
   
 </web-app>
