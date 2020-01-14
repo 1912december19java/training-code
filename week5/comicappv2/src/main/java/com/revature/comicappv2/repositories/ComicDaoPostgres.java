@@ -9,6 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import com.revature.comicappv2.models.Comic;
 
+/**
+ * Implementation of ComicDao for Postgres
+ * 
+ * TODO: throw Exceptions so we can provide feedback to clients
+ * @author Revature
+ *
+ */
 public class ComicDaoPostgres implements ComicDao {
 
   private static Connection conn;
