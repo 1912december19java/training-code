@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.revature.comicappv2.exceptions.ComicException;
 import com.revature.comicappv2.models.Comic;
 import com.revature.comicappv2.repositories.ComicDaoPostgres;
 import com.revature.comicappv2.services.ComicService;
@@ -32,7 +33,8 @@ public class FrontController extends HttpServlet {
     String[] tokens = req.getRequestURI().split("/");
     
     if(tokens[3].equals("comics")) {
-      if(tokens.length > 4) {
+      boolean idWasSpecified = tokens.length > 4;
+      if(idWasSpecified) {
         Integer id = Integer.valueOf(tokens[4]);
         Comic comic = comicService.get(id);
         //TODO: separate this logic out
@@ -41,8 +43,19 @@ public class FrontController extends HttpServlet {
         }
         resp.getWriter().write(om.writeValueAsString(comic));
       } else {
-        //For now, let's implement our getAll
-        List<Comic> comics = comicService.getAll();
+        List<Comic> comics = null;
+        if(req.getParameter("lower")==null && req.getParameter("upper")==null) {
+          comics = comicService.getAll();
+        } else {
+          try {
+          comics = comicService.getByPriceRange(
+              Double.valueOf(req.getParameter("lower")),
+              Double.valueOf(req.getParameter("upper")));
+          } catch (NullPointerException e) {
+            resp.sendError(400, "must specify both lower and upper if one is specified");
+          }
+        }
+        
         resp.getWriter().write(om.writeValueAsString(comics));
       }
     }
@@ -62,7 +75,15 @@ public class FrontController extends HttpServlet {
       case "comics":
         Comic receivedComic = om.readValue(req.getReader(), Comic.class);
         System.out.println(receivedComic);
-        comicService.save(receivedComic);
+        try {
+          comicService.save(receivedComic);
+        } catch (ComicException e) {
+          //another option:
+          resp.setStatus(400);
+          resp.getWriter().write(om.writeValueAsString(e));
+          //this is a fine option:
+          //resp.sendError(400, "Failed to save comic");
+        }
         break;
       default:
         resp.setStatus(404);

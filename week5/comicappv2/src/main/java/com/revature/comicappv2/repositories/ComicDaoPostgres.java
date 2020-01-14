@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import com.revature.comicappv2.exceptions.InvalidComicException;
+import com.revature.comicappv2.exceptions.NotFoundException;
 import com.revature.comicappv2.models.Comic;
 
 /**
@@ -58,6 +60,7 @@ public class ComicDaoPostgres implements ComicDao {
       }
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new NotFoundException(e);
     }
 
     return out;
@@ -77,6 +80,7 @@ public class ComicDaoPostgres implements ComicDao {
       stmt.execute();
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new InvalidComicException(e);
     }
   }
 
@@ -96,6 +100,7 @@ public class ComicDaoPostgres implements ComicDao {
 
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new InvalidComicException(e);
     }
 
   }
@@ -119,6 +124,7 @@ public class ComicDaoPostgres implements ComicDao {
       }
     } catch (SQLException e) {
       e.printStackTrace();
+      throw new NotFoundException(e);
     }
     return allComics;
   }
