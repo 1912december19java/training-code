@@ -6,6 +6,10 @@ public class Comic {
   private int pageCount;
   private double price;
   private int rating;
+  
+  public Comic() {
+    super();
+  }
 
   public Comic(int id, String title, int pageCount, double price, int rating) {
     super();
