@@ -1,0 +1,12 @@
+<p>bootstrap-tester works!</p>
+
+<label>
+  Classes go here:
+  <input [(ngModel)]="classesToTest" type="text">
+</label>
+
+<div [class]="classesToTest">
+  <p>This div is used to test bootstrap styles</p>
+</div>
+
+<p>diagnostic: {{classesToTest | json}}</p>

@@ -1,0 +1,14 @@
+<app-sqaure-one></app-sqaure-one>
+<app-sqaure-two></app-sqaure-two>
+<app-bootstrap-tester></app-bootstrap-tester>
+<h3>Manually created child elements:</h3>
+<app-child-example [message]="messages[0]"></app-child-example>
+<app-child-example [message]="messages[1]"></app-child-example>
+<app-child-example [message]="messages[2]"></app-child-example>
+<h3>Child elements created with *ngFor:</h3>
+<!-- ngFor is a structural directive -- it manipulates the structure of the DOM -->
+<ul>
+  <li *ngFor="let message of messages">
+    <app-child-example [message]="message" (myOutput)="logOutput($event)"></app-child-example>
+  </li>
+</ul>
