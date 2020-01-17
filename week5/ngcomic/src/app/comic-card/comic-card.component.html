@@ -1,1 +1,12 @@
-<p>{{comic | json}}</p>
+<div class="card" style="background-color: lavenderblush; width: 400px">
+  <div class="card-body">
+    <h5 class="card-title">{{comic.title}}</h5>
+    <h6 class="card-subtitle">{{comic.rating}} stars</h6>
+    <div class="card-text">
+      <ul>
+        <li>price : {{comic.price | currency}}</li>
+        <li>pages : {{comic.pageCount}}</li>
+      </ul>
+    </div>
+  </div>  
+</div>

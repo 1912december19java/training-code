@@ -1,0 +1,5 @@
+<ngb-carousel style="width: 400px;">
+  <ng-template ngbSlide *ngFor="let comic of comics">
+    <app-comic-card [comic]="comic"></app-comic-card>
+  </ng-template>
+</ngb-carousel>

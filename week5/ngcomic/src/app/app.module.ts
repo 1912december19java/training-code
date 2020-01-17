@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,7 @@ import { DeckPageComponent } from './deck-page/deck-page.component';
 import { AddComicPageComponent } from './add-comic-page/add-comic-page.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { EditComicPageComponent } from './edit-comic-page/edit-comic-page.component';
+import { ComicCarouselComponent } from './comic-carousel/comic-carousel.component';
 
 @NgModule({
   declarations: [
@@ -32,13 +34,15 @@ import { EditComicPageComponent } from './edit-comic-page/edit-comic-page.compon
     DeckPageComponent,
     AddComicPageComponent,
     AboutPageComponent,
-    EditComicPageComponent
+    EditComicPageComponent,
+    ComicCarouselComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
