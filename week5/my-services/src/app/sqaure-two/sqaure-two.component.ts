@@ -9,7 +9,7 @@ import { CounterService } from '../counter.service';
 export class SqaureTwoComponent implements OnInit {
 
   //DI in angular: private arg to constrcutor
-  constructor(private counterService: CounterService) { }
+  constructor(public counterService: CounterService) { }
 
   ngOnInit() {
     console.log("init of s2");

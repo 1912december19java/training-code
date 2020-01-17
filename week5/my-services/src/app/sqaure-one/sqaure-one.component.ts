@@ -8,7 +8,7 @@ import { CounterService } from '../counter.service';
 })
 export class SqaureOneComponent implements OnInit, OnChanges {
 
-  constructor(private counterService : CounterService) { }
+  constructor(public counterService : CounterService) { }
 
   ngOnInit() {
     console.log('init of s1');
