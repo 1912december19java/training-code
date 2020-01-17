@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Comic } from "../comic";
+import { Comic, COMIC_MOCKS } from "../comic";
+import { ComicService } from "../comic.service";
 
 @Component({
   selector: "app-comic-deck",
@@ -7,24 +8,18 @@ import { Comic } from "../comic";
   styles: []
 })
 export class ComicDeckComponent implements OnInit {
-  comics: Comic[] = [
-    {
-      id: 99,
-      pageCount: 100,
-      price: 40.0,
-      rating: 9,
-      title: "Mock Comic On Frontend 1"
-    },
-    {
-      id: 99,
-      pageCount: 100,
-      price: 40.0,
-      rating: 9,
-      title: "Mock Comic On Frontend 2"
-    }
-  ];
+  comics: Comic[] = COMIC_MOCKS;
+  constructor(private comicService: ComicService) {}
 
-  constructor() {}
+  ngOnInit() {
+    //Both of these are fine:
+    // this.comicService.getAllComics().subscribe((data) => {
+    //   this.comics = data;
+    // });
+    this.populateComics();
+  }
 
-  ngOnInit() {}
+  async populateComics() {
+    this.comics = await this.comicService.promiseGetAllComics();
+  }
 }

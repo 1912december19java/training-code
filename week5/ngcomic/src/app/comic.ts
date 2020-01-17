@@ -5,3 +5,20 @@ export class Comic {
   price : number;
   rating : number;
 }
+
+export const COMIC_MOCKS = [
+  {
+    id: 99,
+    pageCount: 100,
+    price: 40.0,
+    rating: 9,
+    title: "Mock Comic On Frontend 1"
+  },
+  {
+    id: 99,
+    pageCount: 100,
+    price: 40.0,
+    rating: 9,
+    title: "Mock Comic On Frontend 2"
+  }
+];

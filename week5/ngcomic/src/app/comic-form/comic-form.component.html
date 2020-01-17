@@ -1,1 +1,9 @@
-<p>comic-form works!</p>
+<form>
+  <input type="number" [(ngModel)]="comic.id" name="id">
+  <input type="number" [(ngModel)]="comic.pageCount" name="pageCount">
+  <input type="number" [(ngModel)]="comic.rating" name="rating">
+  <input type="number" [(ngModel)]="comic.price" name="price">
+  <input type="text" [(ngModel)]="comic.title" name="title">
+</form>
+<button class="btn btn-primary" (click)="submit()">Add Comic</button>
+<p>diagnostic: {{comic | json}}</p>
