@@ -13,10 +13,10 @@ export class ComicDeckComponent implements OnInit {
 
   ngOnInit() {
     //Both of these are fine:
-    // this.comicService.getAllComics().subscribe((data) => {
-    //   this.comics = data;
-    // });
-    this.populateComics();
+    this.comicService.getAllComics().subscribe((data) => {
+      this.comics = data;
+    });
+    //this.populateComics();
   }
 
   async populateComics() {
