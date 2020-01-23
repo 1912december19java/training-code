@@ -70,8 +70,7 @@ public class FrontController extends HttpServlet {
       throws ServletException, IOException {
     System.out.println("URI: " + req.getRequestURI());
     String[] tokens = req.getRequestURI().split("/");
-    req.getPart("myimage").getInputStream()
-    
+
     switch(tokens[3]) {
       case "comics":
         Comic receivedComic = om.readValue(req.getReader(), Comic.class);
