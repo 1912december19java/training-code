@@ -1,5 +1,9 @@
 package com.revature.infra.beans;
 
+import javax.inject.Inject;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +12,8 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class ComponentCabin extends Residence {
 	
+	//@Inject is the framework-agnostic option; @Autowired is Spring specific
+	@Autowired
 	private Well well;
 
 	public Well getWell() {
