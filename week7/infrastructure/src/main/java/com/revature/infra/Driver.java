@@ -5,6 +5,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.revature.infra.beans.Cabin;
+import com.revature.infra.beans.ComponentCabin;
 import com.revature.infra.beans.House;
 import com.revature.infra.beans.WaterTower;
 
@@ -50,6 +51,10 @@ public class Driver {
 		adamsCabin.checkStatus();
 		adamsSummerCabin.getWell().setResource("Lava");
 		adamsSummerCabin.checkStatus();
+		
+		ComponentCabin adamsComponentCabin = ac.getBean(ComponentCabin.class);
+		adamsComponentCabin.setName("Adam Component Cabin");
+		adamsComponentCabin.checkStatus();
 		
 		//to close we need to cast:
 		((ConfigurableApplicationContext) ac).close();
