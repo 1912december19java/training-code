@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 public class ComponentCabin extends Residence {
 	
 	//@Inject is the framework-agnostic option; @Autowired is Spring specific
+	//@Qualifier lets us specify bean name if there are multiple beans of class Well
 	@Autowired
 	private Well well;
 
