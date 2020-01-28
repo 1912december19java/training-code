@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We define our beans using a bean tag for each -->
+	<bean name="waterTower" class="com.revature.infra.beans.WaterTower">
+		<!-- We can inject values directly from the XML, for instance, this resource -->
+		<property name="resource" value="Water"></property>
+	</bean>
+	
+	<bean name="well" class="com.revature.infra.beans.Well" scope="prototype">
+		<!-- Constructor injection -->
+		<constructor-arg value="Well Water"></constructor-arg>
+	</bean>
+	
+	<bean name="house" class="com.revature.infra.beans.House" scope="prototype">
+		<!-- Injecting a bean - DI -->
+		<property name="waterTower" ref="waterTower"></property>
+	</bean>
+	
+	<bean name="cabin" class="com.revature.infra.beans.Cabin" scope="prototype">
+		<property name="well" ref="well"></property>
+	</bean>
+
+</beans>
