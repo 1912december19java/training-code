@@ -21,10 +21,14 @@ public class Driver {
 		
 		Session session = sf.getCurrentSession();
 		session.beginTransaction();
-		Query q = session.createQuery("from Book");
+		Query q = session.createQuery("from Author");
 		for(Object b : q.list()) {
 			System.out.println(b);
 		}
+		
+		
+		session.getTransaction().commit();
+		sf.close();
 		
 		//hibernateDemo(sf);
 	}

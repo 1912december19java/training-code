@@ -1,11 +1,15 @@
 package com.revature.books.models;
 
 import javax.persistence.Table;
+
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name = "genres")
@@ -21,6 +25,9 @@ public class Genre {
 	
 	@Column(name = "rating")
 	private Integer rating;
+	
+	@ManyToMany(mappedBy = "genres")
+	private List<Book> books;
 
 	public Integer getId() {
 		return id;
@@ -44,6 +51,14 @@ public class Genre {
 
 	public void setRating(Integer rating) {
 		this.rating = rating;
+	}
+
+	public List<Book> getBooks() {
+		return books;
+	}
+
+	public void setBooks(List<Book> books) {
+		this.books = books;
 	}
 
 	@Override
