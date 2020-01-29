@@ -33,7 +33,7 @@ public class Book {
 	@JoinColumn(name = "author_id")
 	private Author author;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 			name = "book_genre",
 			joinColumns = { @JoinColumn(name = "book_id") },

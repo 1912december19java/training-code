@@ -10,6 +10,9 @@ import org.hibernate.criterion.Restrictions;
 
 import com.revature.books.models.Book;
 import com.revature.books.models.Genre;
+import com.revature.books.repositories.AuthorDaoImpl;
+import com.revature.books.repositories.BookDaoImpl;
+import com.revature.books.repositories.GenreDaoImpl;
 
 public class Driver {
 
@@ -19,15 +22,29 @@ public class Driver {
 				.applySettings(configuration.getProperties());
 		SessionFactory sf = configuration.buildSessionFactory(ssrb.build());
 		
-		Session session = sf.getCurrentSession();
-		session.beginTransaction();
-		Query q = session.createQuery("from Author");
-		for(Object b : q.list()) {
-			System.out.println(b);
-		}
+		AuthorDaoImpl authorDao = new AuthorDaoImpl(sf);
+		BookDaoImpl bookDao = new BookDaoImpl(sf);
 		
+		System.out.println(authorDao.getAllAuthors());
+		System.out.println(bookDao.getAllBooks());
 		
-		session.getTransaction().commit();
+		System.out.println(authorDao.getById(3));
+		System.out.println(bookDao.getById(3));
+		
+		GenreDaoImpl genreDao = new GenreDaoImpl(sf);
+		Genre genreToChangeRating = genreDao.getById(3);
+		genreToChangeRating.setRating(5);
+		genreDao.saveOrUpdate(genreToChangeRating);
+//		Genre genreToCreate = new Genre();
+//		genreToCreate.setName("nullIdGenre");
+//		genreDao.saveOrUpdate(genreToCreate);
+//		
+		Genre genreToDelete = new Genre();
+		genreToDelete.setId(9);
+		genreDao.delete(genreToDelete);
+		
+		System.out.println(genreDao.getAllGenres());
+		
 		sf.close();
 		
 		//hibernateDemo(sf);
