@@ -16,7 +16,7 @@
 	<!-- Hibernate Config Goes Here -->
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="connstring" />
+		<property name="url" value="" />
 		<property name="username" value="postgres" />
 		<property name="password" value="wasspord" />
 	</bean>
