@@ -8,6 +8,7 @@ import com.revature.books.repositories.AuthorDaoImpl;
 import com.revature.books.repositories.BookDaoImpl;
 import com.revature.books.repositories.GenreDaoImpl;
 
+@Deprecated
 public class Driver {
 
 	public static void main(String[] args) {

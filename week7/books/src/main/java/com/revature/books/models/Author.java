@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "authors")
 public class Author {
@@ -27,6 +29,7 @@ public class Author {
 	private Integer age;
 	
 	@OneToMany(mappedBy = "author", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("author")
 	private List<Book> books;
 
 	public Integer getId() {

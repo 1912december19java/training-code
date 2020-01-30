@@ -2,10 +2,14 @@ package com.revature.books.models;
 
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +30,8 @@ public class Genre {
 	@Column(name = "rating")
 	private Integer rating;
 	
-	@ManyToMany(mappedBy = "genres")
+	@ManyToMany(mappedBy = "genres", fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("genres")
 	private List<Book> books;
 
 	public Integer getId() {

@@ -11,19 +11,26 @@
 
 	<!-- Scan for Spring beans -->
 	<context:component-scan
-		base-package="com.revature" />
+		base-package="com.revature">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 
 	<!-- Hibernate Config Goes Here -->
-	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="" />
+	<bean name="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="" />
 		<property name="username" value="postgres" />
 		<property name="password" value="wasspord" />
 	</bean>
-	
-	<bean name="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+
+	<bean name="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="packagesToScan" value="com.revature.books.models" />
+		<property name="packagesToScan"
+			value="com.revature.books.models" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
@@ -31,8 +38,9 @@
 			</props>
 		</property>
 	</bean>
-	
-	<bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+
+	<bean name="transactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 

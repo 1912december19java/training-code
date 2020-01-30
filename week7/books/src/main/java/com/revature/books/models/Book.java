@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -31,6 +33,7 @@ public class Book {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "author_id")
+	@JsonIgnoreProperties("books")
 	private Author author;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
@@ -39,6 +42,7 @@ public class Book {
 			joinColumns = { @JoinColumn(name = "book_id") },
 			inverseJoinColumns = { @JoinColumn(name = "genre_id") }
 			)
+	@JsonIgnoreProperties("books")
 	private List<Genre> genres;
 	
 	public Book() {
