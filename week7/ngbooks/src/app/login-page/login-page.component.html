@@ -1,0 +1,7 @@
+<h1>Login:</h1>
+<form>
+  <input type="username" name="username" [(ngModel)]="user.username">
+  <input type="password" name="password" [(ngModel)]="user.password">
+  <input type="submit" value="login">
+</form>
+<p>diagnostic: {{user | json}}</p>
