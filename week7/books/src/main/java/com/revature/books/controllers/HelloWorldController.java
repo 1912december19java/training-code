@@ -28,7 +28,7 @@ public class HelloWorldController {
 	 */
 	@RequestMapping(value = "/hello", method=RequestMethod.GET)
 	public ResponseEntity<String> sayHello() {
-		return new ResponseEntity<String>("Hello from Servlet!", HttpStatus.OK);
+		return new ResponseEntity<String>("Hello from Continuous Deployment!", HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/responsebodystring", method=RequestMethod.GET)
