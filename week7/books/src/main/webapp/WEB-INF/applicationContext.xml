@@ -25,7 +25,7 @@
 		<property name="driverClassName"
 			value="org.postgresql.Driver" />
 		<property name="url"
-			value="" />
+			value="jdbc:postgresql://database-1.c32anyjmqflo.us-east-1.rds.amazonaws.com/books" />
 		<property name="username" value="postgres" />
 		<property name="password" value="wasspord" />
 	</bean>

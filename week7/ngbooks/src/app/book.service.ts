@@ -7,20 +7,22 @@ import { Book } from './book';
 })
 export class BookService {
 
+  baseUrl: string = 'http://localhost:8085/books'
+
   constructor(private http: HttpClient) { }
 
   async getAll() : Promise<Book[]> {
-    return this.http.get<Book[]>('http://localhost:8080/books/books')
+    return this.http.get<Book[]>(`${this.baseUrl}/books`)
         .toPromise();
   }
 
   async addBook(book: Book) : Promise<number> {
-    return this.http.post<number>('http://localhost:8080/books/books', book)
+    return this.http.post<number>(`${this.baseUrl}/books`, book)
         .toPromise();
   }
 
   async updateBook(book: Book) : Promise<Book> {
-    return this.http.put<Book>(`http://localhost:8080/books/books/${book.id}`, book)
+    return this.http.put<Book>(`${this.baseUrl}/books/${book.id}`, book)
         .toPromise();
   }
 }

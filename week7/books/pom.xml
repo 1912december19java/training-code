@@ -68,4 +68,8 @@
 		</dependency>
 
 	</dependencies>
+	
+	<build>
+		<finalName>books</finalName>
+	</build>
 </project>
