@@ -1,0 +1,7 @@
+<form (submit)="onSubmit()">
+  <input type="number" name="id" [(ngModel)]="book.id">
+  <input type="text" name="title" [(ngModel)]="book.title">
+  <input type="number" name="page-count" [(ngModel)]="book.pageCount">
+  <input type="submit" value="Sumbit">
+</form>
+<p>diagnostic: {{book | json}}</p>

@@ -1,1 +1,7 @@
-<p>register-page works!</p>
+<h1>Register:</h1>
+<form (submit)="onSubmit()">
+  <input type="username" name="username" [(ngModel)]="user.username">
+  <input type="password" name="password" [(ngModel)]="user.password">
+  <input type="submit" value="Register">
+</form>
+<p>diagnostic: {{user | json}}</p>

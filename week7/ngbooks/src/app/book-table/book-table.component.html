@@ -1,1 +1,25 @@
-<p>book-table works!</p>
+<p>TY ngbootstrap for the following: </p>
+<form>
+  <div class="form-group form-inline">
+      Full text search: <input class="form-control ml-2" type="text" [formControl]="filter"/>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Page Count</th>
+    <th scope="col">Author</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books$ | async; index as i">
+    <th scope="row">{{ book.id }}</th>
+    <td><ngb-highlight [result]="book.title" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="book.pageCount | number" [term]="filter.value"></ngb-highlight></td>
+    <td><ngb-highlight [result]="book.author ? book.author.name : ''" [term]="filter.value"></ngb-highlight></td>
+  </tr>
+  </tbody>
+</table>

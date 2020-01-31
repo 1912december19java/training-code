@@ -9,8 +9,16 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  public isLoggedIn: boolean = false;
+  //TODO: change back to false
+  public isLoggedIn: boolean = true;
   public loggedInUser: User = new User('','');
+
+  register(username: string, password:string) {
+    this.http.post('http://localhost:9999/users', new User(username, password))
+        .subscribe((response: number)=>{
+          console.log(`registered as user ${response}`);
+        });
+  }
 
   attemptLogIn(username: string, password: string) {
     const loggingInAsUser = new User(username, password);

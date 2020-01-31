@@ -5,12 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavComponent } from './nav/nav.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BookTableComponent } from './book-table/book-table.component';
+import { BookFormComponent } from './book-form/book-form.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +20,16 @@ import { BookTableComponent } from './book-table/book-table.component';
     LoginPageComponent,
     RegisterPageComponent,
     HomePageComponent,
-    BookTableComponent
+    BookTableComponent,
+    BookFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
