@@ -52,14 +52,24 @@
   
 ## Netflix OSS for Microservices
   * Eureka Server: Service Registry.  Microservices register their URI and status with Eureka.  Provides failover.
+    * Enable by putting it on the classpath and using `@EnableEurekaServer`
+    * By default hosts on port 8761 and has self-preservation behavior
   * Eureka Client: Discovery Client.  Retrieves the registry from Eureka Server to locate multiple instances of any other service.
+    * Enable by putting it on the classpath and using `@EnableEurekaClient` or `@EnableDiscoveryClient`
+    * By default both registers with Eureka Server and retrieves the registry of other registered services
   * Ribbon: Load balancer.  Any service running Ribbon will balance its outgoing traffic between instances of other services.  Default is round-robin.
+    * Built into Eureka Client, no need to separately include.
   * Zuul: Gateway.  Allows external entities to access resources within the MS network, and filters traffic coming from outside.
+    * Enable by putting it on the classpath and using `@EnableZuulProxy`
+    * Configure routing in application.properties or application.yml
   * Hystrix: Circuit breaker.  Provides immediate fallback response from failing microservices; used to prevent cascading failures.
   * Feign: Http Client.  Allows microservices to easily send HTTP requests to other microservices
+    * Enable by putting OpenFeign on the classpath and using `@EnableFeignClients`
+    * To actually create a Feign Client (something that sends HTTP reqs), annotate an interface with `@FeignClient` and use `@RequestMapping` annotations to specify what requests to send.
   
 ## Spring Cloud MSA tools
   * Config server: provides centralized and version controlled configuration for microservices
+    * Enable by putting it on the classpath, using `@EnableConfigServer`, and adding a git uri in application.properties
   * Spring REST and Spring Data: easily build a RESTful API
   * RabbitMQ: Messaging Queue -- broadcast information to all listening microservices instead of sending many HTTP requests
 
@@ -232,3 +242,31 @@
  * The docker daemon, by default, maintains all the running containers on a network on your computer.  We call this the **host** network type
  * We can also configure Docker to use a **distributed** network, making use of docker containers across multiple computers
  * If we want our docker container to be accessible outside of our machine, we need to run our container with a "--publish <port>:<port> command to set up port forwarding to the container.
+
+## Docker Commands
+ * Send commands to the docker daemon with the command ```docker <command>```
+ * Commands to know:
+  * build : builds an image from Dockerfile and context
+  * run : creates a running container from an image.  Has important flags:
+   * --publish `<hostport>:<containerport>` : forwards traffic hitting hostport to containerport
+   * --detach : runs this container in the background
+   * -it : pipes your stdin and stdout to the countainer, and gives you a nice shell to use inside the container
+  * images : show all images available locally
+  * ps : show all running containers
+  * ps -la : show all containers running, stopped, and terminated
+  * start / stop : start or stop a container
+  * kill : terminate a container
+ 
+## Dockerfile Syntax
+ * Start with FROM, often (but not always) end with CMD.  Specify how to build an image
+ * Only FROM, RUN, ADD, and COPY add layers to the image
+ * Any command that adds layers will be cached and reused in future builds, if possible
+ * Commands to know:
+  * FROM `<image>` : specify the base image to build on top of.  Often an official image from DockerHub
+  * RUN `<command>` : runs a command and saves the result as a new layer.  Examples:
+   * RUN ```apt-get update && apt-get install <package>```
+   * RUN ```mvn package```
+  * COPY `<hostfile> <containerfile>` : copies a file from the build context in the host's filesystem into the image
+  * ADD `<hostsource> <containerdestination>` : works similarly to COPY, but can take URLs and archived (.tar) files.
+  * EXPOSE `<port>` : suggest a port to be published.  We still need to docker run with "-p `<port>:<port>`"
+  * CMD `["<parts>", "<of>", "<command>"]` : sets a default command to run when every container built from this image starts up
