@@ -50,7 +50,7 @@ How to implement Gateway service.
 
 Annotations of Zuul and what they do.
 
-How do you make Zuul to employ discovery for the routes to services?
+How to make Zuul use Service Discovery for route endpoints instead of URIs?
 
 What is Ribbon?
 
